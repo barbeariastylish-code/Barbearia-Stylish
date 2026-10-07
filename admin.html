@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Barbearia Stylish</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="admin-body">
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-box">
+            <h1>💈 Barbearia Stylish</h1>
+            <h2>Área Administrativa</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="adminUser">Usuário</label>
+                    <input type="text" id="adminUser" class="input-field" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPass">Senha</label>
+                    <input type="password" id="adminPass" class="input-field" required>
+                </div>
+                <button type="submit" class="btn-primary btn-large">Entrar</button>
+            </form>
+            <a href="index.html" class="btn-secondary login-home-button">Voltar para página inicial</a>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="admin-dashboard" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>💈 Barbearia do Stylish</h1>
+                <p>Painel Administrativo</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                    <span>•</span> Dashboard
+                </a>
+                <a href="#agenda" class="nav-item" data-section="agenda">
+                    <span>•</span> Agenda
+                </a>
+                <a href="#financeiro" class="nav-item" data-section="financeiro">
+                    <span>•</span> Financeiro
+                </a>
+                <a href="#servicos" class="nav-item" data-section="servicos">
+                    <span>•</span> Serviços
+                </a>
+                <a href="#configuracoes" class="nav-item" data-section="configuracoes">
+                    <span>•</span> Configurações
+                </a>
+                <a href="index.html" class="nav-item">
+                    <span>•</span> Voltar para página inicial
+                </a>
+                <a href="#" class="nav-item" onclick="logout()">
+                    <span>•</span> Sair
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <!-- Dashboard Section -->
+            <section id="section-dashboard" class="admin-section active">
+                <h2>Dashboard</h2>
+                <div class="dashboard-cards">
+                    <div class="card">
+                        <h3>Agendamentos Hoje</h3>
+                        <p class="card-value" id="todayBookings">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Faturamento Mês</h3>
+                        <p class="card-value" id="monthRevenue">R$ 0,00</p>
+                    </div>
+                    <div class="card">
+                        <h3>Saldo do Mês</h3>
+                        <p class="card-value" id="monthBalance">R$ 0,00</p>
+                    </div>
+                    <div class="card">
+                        <h3>Clientes no Mês</h3>
+                        <p class="card-value" id="monthClients">0</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-chart">
+                        <h3>Entradas vs Saídas</h3>
+                        <canvas id="financeChart"></canvas>
+                    </div>
+                    <div class="dashboard-chart">
+                        <h3>Serviços Mais Vendidos</h3>
+                        <canvas id="servicesChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Agenda Section -->
+            <section id="section-agenda" class="admin-section">
+                <h2>Agenda</h2>
+                <div class="agenda-controls">
+                    <input type="date" id="agendaDate" class="input-field">
+                    <select id="agendaView" class="input-field">
+                        <option value="day">Dia</option>
+                        <option value="week">Semana</option>
+                        <option value="month">Mês</option>
+                    </select>
+                </div>
+                <div class="agenda-container" id="agendaContainer">
+                    <!-- Agenda will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Finance Section -->
+            <section id="section-financeiro" class="admin-section">
+                <h2>Controle Financeiro</h2>
+                
+                <div class="finance-tabs">
+                    <button class="tab-btn active" onclick="showFinanceTab('entradas')">Entradas</button>
+                    <button class="tab-btn" onclick="showFinanceTab('saidas')">Saídas</button>
+                    <button class="tab-btn" onclick="showFinanceTab('resumo')">Resumo</button>
+                </div>
+
+                <div id="tab-entradas" class="finance-tab active">
+                    <h3>Entradas (Agendamentos)</h3>
+                    <div class="finance-filters">
+                        <input type="date" id="entradaStart" class="input-field">
+                        <input type="date" id="entradaEnd" class="input-field">
+                        <button class="btn-primary" onclick="filterEntradas()">Filtrar</button>
+                    </div>
+                    <div class="finance-table" id="entradasTable">
+                        <!-- Table will be loaded here -->
+                    </div>
+                </div>
+
+                <div id="tab-saidas" class="finance-tab">
+                    <h3>Saídas (Despesas)</h3>
+                    <button class="btn-primary" onclick="openExpenseModal()">+ Nova Despesa</button>
+                    <div class="finance-table" id="saidasTable">
+                        <!-- Table will be loaded here -->
+                    </div>
+                </div>
+
+                <div id="tab-resumo" class="finance-tab">
+                    <h3>Resumo Financeiro</h3>
+                    <div class="finance-summary">
+                        <div class="summary-card">
+                            <h4>Total de Entradas</h4>
+                            <p class="summary-value positive" id="totalEntradas">R$ 0,00</p>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Total de Saídas</h4>
+                            <p class="summary-value negative" id="totalSaidas">R$ 0,00</p>
+                        </div>
+                        <div class="summary-card">
+                            <h4>Saldo Líquido</h4>
+                            <p class="summary-value" id="saldoLiquido">R$ 0,00</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="section-servicos" class="admin-section">
+                <h2>Gerenciar Serviços</h2>
+                <button class="btn-primary" onclick="openServiceModal()">+ Novo Serviço</button>
+                <div class="services-admin-list" id="servicesAdminList">
+                    <!-- Services list will be loaded here -->
+                </div>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="section-configuracoes" class="admin-section">
+                <h2>Configurações</h2>
+                <form id="settingsForm">
+                    <div class="form-group">
+                        <label for="whatsappNumber">WhatsApp do Barbeiro</label>
+                        <input type="tel" id="whatsappNumber" class="input-field" placeholder="558695125698">
+                    </div>
+                    <div class="form-group">
+                        <label for="openTime">Horário de Abertura</label>
+                        <input type="time" id="openTime" class="input-field" value="08:00">
+                    </div>
+                    <div class="form-group">
+                        <label for="closeTime">Horário de Fechamento</label>
+                        <input type="time" id="closeTime" class="input-field" value="19:30">
+                    </div>
+                    <div class="form-group">
+                        <label for="intervalMinutes">Intervalo entre Atendimentos (min)</label>
+                        <input type="number" id="intervalMinutes" class="input-field" value="10">
+                    </div>
+                    <div class="form-group">
+                        <label>Dias de Folga</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="closedDays" value="0"> Domingo</label>
+                            <label><input type="checkbox" name="closedDays" value="1"> Segunda</label>
+                            <label><input type="checkbox" name="closedDays" value="2"> Terça</label>
+                            <label><input type="checkbox" name="closedDays" value="3"> Quarta</label>
+                            <label><input type="checkbox" name="closedDays" value="4"> Quinta</label>
+                            <label><input type="checkbox" name="closedDays" value="5"> Sexta</label>
+                            <label><input type="checkbox" name="closedDays" value="6"> Sábado</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Salvar Configurações</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Expenses -->
+    <div id="expenseModal" class="modal">
+        <div class="modal-content">
+            <h3>Nova Despesa</h3>
+            <form id="expenseForm">
+                <div class="form-group">
+                    <label for="expenseCategory">Categoria</label>
+                    <select id="expenseCategory" class="input-field" required>
+                        <option value="produtos">Produtos</option>
+                        <option value="aluguel">Aluguel</option>
+                        <option value="energia">Energia</option>
+                        <option value="agua">Água</option>
+                        <option value="comissao">Comissão</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="expenseDescription">Descrição</label>
+                    <input type="text" id="expenseDescription" class="input-field" required>
+                </div>
+                <div class="form-group">
+                    <label for="expenseValue">Valor (R$)</label>
+                    <input type="number" step="0.01" id="expenseValue" class="input-field" required>
+                </div>
+                <div class="form-group">
+                    <label for="expenseDate">Data</label>
+                    <input type="date" id="expenseDate" class="input-field" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeExpenseModal()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Services -->
+    <div id="serviceModal" class="modal">
+        <div class="modal-content">
+            <h3 id="serviceModalTitle">Novo Serviço</h3>
+            <form id="serviceForm">
+                <input type="hidden" id="serviceId">
+                <div class="form-group">
+                    <label for="serviceName">Nome do Serviço</label>
+                    <input type="text" id="serviceName" class="input-field" required>
+                </div>
+                <div class="form-group">
+                    <label for="serviceDescription">Descrição</label>
+                    <textarea id="serviceDescription" class="input-field" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="serviceDuration">Duração (minutos)</label>
+                    <input type="number" id="serviceDuration" class="input-field" required>
+                </div>
+                <div class="form-group">
+                    <label for="servicePrice">Preço (R$)</label>
+                    <input type="number" step="0.01" id="servicePrice" class="input-field" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" onclick="closeServiceModal()">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
