@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Barbearia Stylish: cortes, barba e acabamento premium com agendamento online.">
+    <title>Barbearia Stylish | Estilo sob medida</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="public-site">
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+    <div class="page-loader" id="pageLoader" aria-hidden="true">
+        <div class="loader-mark barber-pole" aria-hidden="true"><span></span></div>
+        <span>STYLISH</span>
+    </div>
+
+    <header class="header" id="siteHeader">
+        <div class="container nav-bar">
+            <a class="logo" href="#inicio" aria-label="Barbearia Stylish, início">
+                <span class="logo-mark barber-pole" aria-hidden="true"><span></span></span>
+                <span>
+                    <strong>Barbearia Stylish</strong>
+                </span>
+            </a>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="main-nav" id="mainNav" aria-label="Menu principal">
+                <a href="#inicio">Início</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#agendar">Agendamento</a>
+                <a href="#agendar" class="btn-primary nav-cta">Agendar horário <span aria-hidden="true">↗</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="hero" id="inicio">
+            <div class="hero-grid container">
+                <div class="hero-copy reveal reveal-left">
+                    <h1>Seu visual.<br><em>Sua assinatura.</em></h1>
+                    <p>Corte, barba e acabamento premium para quem entende que presença mora nos detalhes.</p>
+                    <div class="hero-actions">
+                        <a href="#agendar" class="btn-large">Agendar horário <span aria-hidden="true">↗</span></a>
+                        <a href="#servicos" class="btn-secondary light">Conhecer serviços</a>
+                    </div>
+                    <div class="hero-proof">
+                        <span><i class="status-dot"></i> agenda aberta</span>
+                    </div>
+                </div>
+                <div class="hero-visual reveal reveal-right" aria-label="Ambiente e atendimento da barbearia">
+                    <div class="hero-orbit orbit-one"></div>
+                    <div class="hero-orbit orbit-two"></div>
+                    <div class="hero-card main">
+                        <span class="card-tag">Atendimento exclusivo</span>
+                        <h2>Barba<br><span>&amp; Corte</span></h2>
+                        <div class="price-row"><span>A partir de</span><strong>R$ 25</strong></div>
+                        <div class="mini-badge">✦ acabamento de precisão</div>
+                    </div>
+                    <div class="hero-card floating"><span>Próximo horário</span><strong>14:30</strong><small>Disponível hoje</small></div>
+                    <span class="hero-vertical-label">STYLISH / 2026</span>
+                </div>
+            </div>
+            <a class="scroll-cue" href="#servicos" aria-label="Conheça os serviços"><span></span> role para explorar</a>
+        </section>
+
+        <section id="servicos" class="services section-shell">
+            <div class="container">
+                <div class="section-heading split-heading reveal">
+                    <div><span class="eyebrow">O menu Stylish</span><h2 class="section-title">Serviços que<br><em>definem presença.</em></h2></div>
+                </div>
+                <div class="services-grid" id="servicesList"></div>
+                <div class="gallery-block reveal">
+                    <div class="section-heading split-heading gallery-heading">
+                        <div><span class="eyebrow">Nosso trabalho</span><h2 class="section-title">Detalhes que<br><em>fazem a diferença.</em></h2></div>
+                    </div>
+                    <div class="gallery-grid">
+                        <figure class="gallery-item gallery-tall"><img src="ft1.jpeg" alt="Corte realizado pela Barbearia Stylish"><figcaption>Degradê Navalhado</figcaption></figure>
+                        <figure class="gallery-item"><img src="ft2.png" alt="Degradê realizado pela Barbearia Stylish"><figcaption>Degradê Navalhado</figcaption></figure>
+                        <figure class="gallery-item"><img src="ft3.png" alt="Acabamento de corte da Barbearia Stylish"><figcaption>Acabamento preciso</figcaption></figure>
+                        <figure class="gallery-item"><img src="ft4.png" alt="Resultado de transformação na Barbearia Stylish"><figcaption>Transformação Stylish</figcaption></figure>
+                        <figure class="gallery-item"><img src="ft5.png" alt="Resultado de transformação na Barbearia Stylish"><figcaption>Corte Social</figcaption></figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="agendar" class="booking section-shell">
+            <div class="container">
+                <div class="section-heading align-center reveal"><span class="eyebrow">Seu próximo visual</span><h2 class="section-title">Agende em poucos passos.</h2><p class="section-subtitle">Escolha, confirme e deixe o resto com a gente.</p></div>
+                <div class="booking-layout">
+                    <aside class="booking-aside reveal reveal-left">
+                        <div class="booking-aside-top"><span class="booking-kicker">AGENDA STYLISH</span><span class="live-badge"><i></i> online</span></div>
+                        <h3>Seu horário,<br><em>do seu jeito.</em></h3>
+                        <p>O processo é simples e leva menos de um minuto.</p>
+                        <ol class="booking-progress" aria-label="Etapas do agendamento">
+                            <li class="current"><span>01</span><div><strong>Serviço</strong><small>Monte seu ritual</small></div></li>
+                            <li><span>02</span><div><strong>Data e horário</strong><small>Escolha quando vir</small></div></li>
+                            <li><span>03</span><div><strong>Seus dados</strong><small>Para confirmar</small></div></li>
+                            <li><span>04</span><div><strong>Confirmação</strong><small>Está marcado</small></div></li>
+                        </ol>
+                    </aside>
+                    <div class="booking-panel reveal reveal-right">
+                        <div class="step active" id="step1">
+                            <div class="step-header"><span class="step-number">01</span><div><small>ETAPA 01</small><h3>Escolha os serviços</h3></div></div>
+                            <div class="step-content"><div class="selected-services" id="selectedServices"><p>Nenhum serviço selecionado</p></div><button class="btn-primary" onclick="goToStep(2)">Continuar <span aria-hidden="true">→</span></button><div class="history-lookup"><label class="field-label" for="historyPhone">Consultar meus cortes</label><div><input type="tel" id="historyPhone" class="input-field" placeholder="Digite seu WhatsApp"><button class="btn-secondary" type="button" onclick="lookupClientHistory()">Ver histórico</button></div></div><div class="client-history" id="lookupHistory" hidden></div></div>
+                        </div>
+                        <div class="step" id="step2">
+                            <div class="step-header"><span class="step-number">02</span><div><small>ETAPA 02</small><h3>Data e horário</h3></div></div>
+                            <div class="step-content"><label class="field-label" for="bookingDate">Qual o melhor dia?</label><div class="date-selector"><input type="date" id="bookingDate" min="" class="input-field"></div><label class="field-label">Horários disponíveis</label><div class="time-slots" id="timeSlots"><p>Selecione uma data para ver os horários disponíveis.</p></div><div class="step-actions"><button class="btn-secondary" onclick="goToStep(1)">Voltar</button><button class="btn-primary" onclick="goToStep(3)">Continuar <span aria-hidden="true">→</span></button></div></div>
+                        </div>
+                        <div class="step" id="step3">
+                            <div class="step-header"><span class="step-number">03</span><div><small>ETAPA 03</small><h3>Seus dados</h3></div></div>
+                            <div class="step-content"><form id="bookingForm"><div class="form-group"><label for="clientName">Nome completo</label><input type="text" id="clientName" class="input-field" autocomplete="name" required></div><div class="form-group"><label for="clientPhone">WhatsApp / Telefone</label><input type="tel" id="clientPhone" class="input-field" autocomplete="tel" placeholder="(00) 00000-0000" required></div></form><div class="step-actions"><button class="btn-secondary" onclick="goToStep(2)">Voltar</button><button class="btn-primary" onclick="goToStep(4)">Revisar agendamento <span aria-hidden="true">→</span></button></div></div>
+                        </div>
+                        <div class="step" id="step4">
+                            <div class="step-header"><span class="step-number">04</span><div><small>ETAPA 04</small><h3>Confirme seu horário</h3></div></div><div class="step-content"><div class="booking-summary" id="bookingSummary"></div><div class="step-actions"><button class="btn-secondary" onclick="goToStep(3)">Voltar</button><button class="btn-success" onclick="confirmBooking()">Confirmar agendamento <span aria-hidden="true">✓</span></button></div></div>
+                        </div>
+                        <div class="step" id="step5"><div class="step-header"><span class="step-number">✓</span><div><small>STYLISH</small><h3>Está confirmado.</h3></div></div><div class="step-content success-message"><div class="success-icon">✓</div><p>Seu horário foi reservado e atualizado para todos.</p><p>Uma mensagem de confirmação foi preparada para o barbeiro.</p><div class="client-history" id="clientHistory"></div><button class="btn-primary" onclick="resetBooking()">Novo agendamento <span aria-hidden="true">↗</span></button></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="contact section-shell">
+            <div class="container contact-grid">
+                <div class="contact-copy reveal reveal-left"><span class="eyebrow">Fale com a Stylish</span><h2 class="section-title">Seu próximo<br><em>corte começa aqui.</em></h2><a class="btn-large" href="https://wa.me/558695125698" target="_blank" rel="noopener">Conversar no WhatsApp <span aria-hidden="true">↗</span></a></div>
+                <div class="contact-details reveal reveal-right"><div class="contact-detail"><span>HORÁRIO</span><strong>Seg a qui · 08:00 — 19:30<br>Sex e sáb · 08:00 — 20:30</strong></div><div class="contact-detail"><span>DOMINGO</span><strong>Por agendamento</strong></div><div class="contact-detail"><span>ATENDIMENTO</span><strong>Com hora marcada</strong></div></div>
+            </div>
+        </section>
+    </main>
+
+    <a class="whatsapp-float" href="https://wa.me/558695125698" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><span>◔</span><small>Fale conosco</small></a>
+    <footer class="footer"><div class="container footer-row"><div class="footer-brand"><span class="logo-mark barber-pole" aria-hidden="true"><span></span></span><p><strong>Barbearia Stylish</strong></p></div><p class="footer-copy">© 2026 Barbearia Stylish. Todos os direitos reservados.</p><a href="admin.html">Área administrativa <span aria-hidden="true">↗</span></a></div></footer>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

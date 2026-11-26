@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Barbearia Stylish: degradê, navalha, desenho e luzes. Agende seu horário online e confirme pelo WhatsApp.">
+    <meta name="theme-color" content="#000000">
+    <title>Barbearia Stylish | Estilo sob medida</title>
+
+    <!-- Fontes: Bowlby One (letreiro) + Figtree (texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Estilo do site público (o painel admin continua usando styles.css) -->
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- ============ CABEÇALHO ============ -->
+    <header class="header" id="topo">
+        <div class="container header__bar">
+            <a class="brand" href="#inicio" aria-label="Barbearia Stylish, voltar ao início">
+                <span class="brand__ball" aria-hidden="true">8</span>
+                <span class="brand__name">Stylish</span>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" type="button" aria-controls="mainNav" aria-expanded="false">
+                <span class="sr-only">Abrir menu</span>
+                <span class="menu-toggle__line" aria-hidden="true"></span>
+                <span class="menu-toggle__line" aria-hidden="true"></span>
+            </button>
+
+            <nav class="nav" id="mainNav" aria-label="Menu principal">
+                <a href="#servicos">Serviços</a>
+                <a href="#trabalhos">Trabalhos</a>
+                <a href="#contato">Horários</a>
+                <a href="#agendar" class="btn btn--red btn--small">Agendar horário</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="inicio">
+            <div class="container hero__grid">
+                <div class="hero__copy">
+                    <p class="hero__kicker">Barbearia</p>
+                    <h1 class="wordmark" aria-label="Stylish">
+                        <span aria-hidden="true">S</span><span aria-hidden="true">t</span><span aria-hidden="true">y</span><span aria-hidden="true">l</span><span aria-hidden="true">i</span><span aria-hidden="true">s</span><span aria-hidden="true">h</span>
+                    </h1>
+                    <p class="hero__lead">
+                        Degradê na régua, navalha, desenho e luzes.
+                        Escolha o serviço, marque o horário e receba a confirmação pelo WhatsApp.
+                    </p>
+                    <div class="hero__actions">
+                        <a href="#servicos" class="btn btn--red">Escolher serviço</a>
+                        <a href="https://wa.me/558695125698" class="btn btn--ghost" target="_blank" rel="noopener">Falar no WhatsApp</a>
+                    </div>
+                    <p class="hero__hours" id="heroStatus">Seg a sáb a partir das 08:00</p>
+                </div>
+
+                <figure class="hero__photo">
+                    <img src="ft4.png" alt="Cliente com degradê e desenho lateral, sentado em frente ao mural da Barbearia Stylish" width="960" height="1280" fetchpriority="high">
+                </figure>
+            </div>
+        </section>
+
+        <!-- ============ SERVIÇOS ============ -->
+        <section class="section" id="servicos" aria-labelledby="servicosTitulo">
+            <div class="container">
+                <header class="section__head">
+                    <h2 class="section__title" id="servicosTitulo">Serviços e preços</h2>
+                    <p class="section__intro">Toque em um serviço para adicionar ao seu agendamento. Dá para combinar mais de um.</p>
+                </header>
+
+                <!-- Lista preenchida pelo app.js -->
+                <ul class="menu-board" id="servicesList"></ul>
+            </div>
+        </section>
+
+        <!-- ============ TRABALHOS (GALERIA) ============ -->
+        <section class="section section--wall" id="trabalhos" aria-labelledby="trabalhosTitulo">
+            <div class="container">
+                <header class="section__head">
+                    <h2 class="section__title" id="trabalhosTitulo">Saiu da cadeira assim</h2>
+                    <p class="section__intro">Alguns cortes feitos aqui, em frente ao nosso mural.</p>
+                </header>
+
+                <div class="gallery">
+                    <figure class="gallery__item gallery__item--big">
+                        <img src="ft1.jpeg" alt="Degradê baixo com acabamento na navalha" loading="lazy">
+                        <figcaption>Degradê navalhado</figcaption>
+                    </figure>
+                    <figure class="gallery__item">
+                        <img src="ft2.png" alt="Degradê visto de lado" loading="lazy">
+                        <figcaption>Degradê</figcaption>
+                    </figure>
+                    <figure class="gallery__item">
+                        <img src="ft3.png" alt="Detalhe do acabamento do corte na nuca" loading="lazy">
+                        <figcaption>Acabamento</figcaption>
+                    </figure>
+                    <figure class="gallery__item">
+                        <img src="ft4.png" alt="Degradê com desenho lateral" loading="lazy">
+                        <figcaption>Desenho</figcaption>
+                    </figure>
+                    <figure class="gallery__item">
+                        <img src="ft5.png" alt="Corte social finalizado" loading="lazy">
+                        <figcaption>Corte social</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ AGENDAMENTO ============ -->
+        <section class="section" id="agendar" aria-labelledby="agendarTitulo">
+            <div class="container booking">
+                <header class="booking__intro">
+                    <h2 class="section__title" id="agendarTitulo">Agende seu horário</h2>
+                    <p class="section__intro">Quatro passos, menos de um minuto. No final, abrimos o WhatsApp com tudo preenchido para o barbeiro.</p>
+
+                    <ol class="steps" id="stepsNav" aria-label="Etapas do agendamento">
+                        <li class="steps__item is-current" aria-current="step"><span class="steps__num">1</span> Serviços</li>
+                        <li class="steps__item"><span class="steps__num">2</span> Dia e horário</li>
+                        <li class="steps__item"><span class="steps__num">3</span> Seus dados</li>
+                        <li class="steps__item"><span class="steps__num">4</span> Confirmação</li>
+                    </ol>
+                </header>
+
+                <div class="booking__panel" id="bookingPanel" tabindex="-1">
+
+                    <!-- Etapa 1: serviços escolhidos -->
+                    <div class="step is-active" data-step="1">
+                        <h3 class="step__title">Seus serviços</h3>
+                        <div id="selectedServices" class="picked"></div>
+                        <p class="step__error" role="alert" data-error="1"></p>
+                        <div class="step__actions">
+                            <button class="btn btn--red" type="button" data-go="2">Escolher dia e horário</button>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 2: dia e horário -->
+                    <div class="step" data-step="2">
+                        <h3 class="step__title">Dia e horário</h3>
+
+                        <p class="field-label" id="diasLabel">Dia</p>
+                        <div class="days" id="daysList" role="group" aria-labelledby="diasLabel"></div>
+
+                        <p class="field-label" id="horasLabel">Horário</p>
+                        <div class="slots" id="timeSlots" role="group" aria-labelledby="horasLabel" aria-live="polite">
+                            <p class="muted">Escolha um dia para ver os horários livres.</p>
+                        </div>
+
+                        <p class="step__error" role="alert" data-error="2"></p>
+                        <div class="step__actions">
+                            <button class="btn btn--ghost" type="button" data-go="1">Voltar</button>
+                            <button class="btn btn--red" type="button" data-go="3">Continuar</button>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 3: dados do cliente -->
+                    <form class="step" data-step="3" id="bookingForm" novalidate>
+                        <h3 class="step__title">Seus dados</h3>
+                        <div class="field">
+                            <label for="clientName">Nome</label>
+                            <input class="input" type="text" id="clientName" name="name" autocomplete="name" required>
+                        </div>
+                        <div class="field">
+                            <label for="clientPhone">WhatsApp</label>
+                            <input class="input" type="tel" id="clientPhone" name="phone" autocomplete="tel" inputmode="numeric" placeholder="(86) 99999-9999" required>
+                        </div>
+                        <p class="step__error" role="alert" data-error="3"></p>
+                        <div class="step__actions">
+                            <button class="btn btn--ghost" type="button" data-go="2">Voltar</button>
+                            <button class="btn btn--red" type="submit">Revisar agendamento</button>
+                        </div>
+                    </form>
+
+                    <!-- Etapa 4: revisão -->
+                    <div class="step" data-step="4">
+                        <h3 class="step__title">Confira antes de confirmar</h3>
+                        <div id="bookingSummary"></div>
+                        <p class="step__error" role="alert" data-error="4"></p>
+                        <div class="step__actions">
+                            <button class="btn btn--ghost" type="button" data-go="3">Voltar</button>
+                            <button class="btn btn--red" type="button" id="confirmBtn">Confirmar agendamento</button>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 5: sucesso -->
+                    <div class="step step--done" data-step="5">
+                        <span class="done-mark" aria-hidden="true">✓</span>
+                        <h3 class="step__title">Horário reservado</h3>
+                        <p id="doneText">Seu horário já está bloqueado na agenda. Envie a mensagem que abrimos no WhatsApp para o barbeiro ficar sabendo.</p>
+                        <div class="step__actions">
+                            <button class="btn btn--red" type="button" id="resetBtn">Fazer outro agendamento</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ HORÁRIOS, CONTATO E HISTÓRICO ============ -->
+        <section class="section section--ink" id="contato" aria-labelledby="contatoTitulo">
+            <div class="container info">
+                <div class="info__block">
+                    <h2 class="section__title" id="contatoTitulo">Horários</h2>
+                    <dl class="hours">
+                        <div><dt>Segunda a quinta</dt><dd>08:00 às 19:30</dd></div>
+                        <div><dt>Sexta e sábado</dt><dd>08:00 às 20:30</dd></div>
+                        <div><dt>Domingo</dt><dd>Só com hora marcada</dd></div>
+                    </dl>
+                    <a class="btn btn--red" href="https://wa.me/558695125698" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+                </div>
+
+                <div class="info__block">
+                    <h2 class="section__title section__title--small">Meus agendamentos</h2>
+                    <p class="muted-light">Digite o WhatsApp usado no agendamento para ver os horários marcados neste aparelho.</p>
+                    <form class="lookup" id="historyForm">
+                        <label class="sr-only" for="historyPhone">Seu WhatsApp</label>
+                        <input class="input input--dark" type="tel" id="historyPhone" inputmode="numeric" placeholder="(86) 99999-9999" autocomplete="tel">
+                        <button class="btn btn--light" type="submit">Ver agendamentos</button>
+                    </form>
+                    <div class="history" id="lookupHistory" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ RODAPÉ ============ -->
+    <footer class="footer">
+        <div class="container footer__row">
+            <p>© <span id="year">2026</span> Barbearia Stylish</p>
+            <a href="admin.html">Área do barbeiro</a>
+        </div>
+    </footer>
+
+    <!-- Barra fixa que aparece quando há serviços escolhidos -->
+    <div class="cart" id="cartBar" hidden>
+        <div class="cart__info">
+            <strong id="cartCount">1 serviço</strong>
+            <span id="cartTotal">R$ 0,00</span>
+        </div>
+        <a class="btn btn--red btn--small" href="#agendar" id="cartGo">Agendar</a>
+    </div>
+
+    <!-- Aviso rápido (toast) -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Firebase (reserva de horários em tempo real) -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
